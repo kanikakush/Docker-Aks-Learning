@@ -1,0 +1,21 @@
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD ["node","src/index.js"]
+EXPOSE 3000
+
+---------------------------------
+#######  Docker Build & Run Commands  #################
+
+docker build -t day02-todo .
+docker images
+docker login
+docker push kanikakushwaha/test-resp-day02:latest
+docker run -dp 3000:3000 kanikakushwaha/test-resp-day02
+
+######### DEBUGGING ###########################
+
+docker ps
+docker exec -it flamboyant_sinoussi bash
+docker exec -it flamboyant_sinoussi sh

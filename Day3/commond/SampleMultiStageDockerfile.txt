@@ -1,0 +1,23 @@
+FROM node:18-alpine AS installer
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+FROM nginx:latest AS deployer
+COPY --from=installer /app/build /usr/share/nginx/html
+
+---------------------------------
+#######  Docker Build & Run Commands  #################
+
+docker build -t multistage .
+docker images
+cat dockerfile
+docker run -it -dp 3000:3000 multistage
+
+######### DEBUGGING ###########################
+
+docker ps
+docker logs 3990ebff06c2 ### Id=containerID
+docker exec -it 3990ebff06c2 sh
+docker inspect 3990ebff06c2
