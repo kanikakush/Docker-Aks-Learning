@@ -1,0 +1,447 @@
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2
+$ git clone https://github.com/docker/getting-started-app.git
+Cloning into 'getting-started-app'...
+remote: Enumerating objects: 79, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (31/31), done.
+remote: Total 79 (delta 18), reused 14 (delta 14), pack-reused 34 (from 1)
+Receiving objects: 100% (79/79), 1.68 MiB | 2.27 MiB/s, done.
+Resolving deltas: 100% (18/18), done.
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2
+$ cd getting-started-app/
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ touch Dockerfile
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ vi dockerfile
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ vi dockerfile
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ vi dockerfile
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ ls -lrt
+total 151
+-rw-r--r-- 1 Kanika Kushwaha 197609    273 Sep 14 16:08 README.md
+-rw-r--r-- 1 Kanika Kushwaha 197609    681 Sep 14 16:08 package.json
+drwxr-xr-x 1 Kanika Kushwaha 197609      0 Sep 14 16:08 spec/
+drwxr-xr-x 1 Kanika Kushwaha 197609      0 Sep 14 16:08 src/
+-rw-r--r-- 1 Kanika Kushwaha 197609 150541 Sep 14 16:08 yarn.lock
+-rw-r--r-- 1 Kanika Kushwaha 197609    114 Sep 14 16:39 Dockerfile
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ ls -lrth
+total 151K
+-rw-r--r-- 1 Kanika Kushwaha 197609  273 Sep 14 16:08 README.md
+-rw-r--r-- 1 Kanika Kushwaha 197609  681 Sep 14 16:08 package.json
+drwxr-xr-x 1 Kanika Kushwaha 197609    0 Sep 14 16:08 spec/
+drwxr-xr-x 1 Kanika Kushwaha 197609    0 Sep 14 16:08 src/
+-rw-r--r-- 1 Kanika Kushwaha 197609 148K Sep 14 16:08 yarn.lock
+-rw-r--r-- 1 Kanika Kushwaha 197609  114 Sep 14 16:39 Dockerfile
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker --help
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  debug*      Get a shell into any image or container
+  desktop*    Docker Desktop commands (Alpha)
+  dev*        Docker Dev Environments
+  extension*  Manages Docker extensions
+  feedback*   Provide feedback, right in your terminal!
+  image       Manage images
+  init*       Creates Docker-related starter files for your project
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  sbom*       View the packaged-based Software Bill Of Materials (SBOM) for an image
+  scout*      Docker Scout
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "C:\\Users\\Kanika Kushwaha\\.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "C:\\Users\\Kanika Kushwaha\\.docker\\ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "C:\\Users\\Kanika Kushwaha\\.docker\\cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "C:\\Users\\Kanika Kushwaha\\.docker\\key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker --build
+unknown flag: --build
+See 'docker --help'.
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  debug*      Get a shell into any image or container
+  desktop*    Docker Desktop commands (Alpha)
+  dev*        Docker Dev Environments
+  extension*  Manages Docker extensions
+  feedback*   Provide feedback, right in your terminal!
+  image       Manage images
+  init*       Creates Docker-related starter files for your project
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  sbom*       View the packaged-based Software Bill Of Materials (SBOM) for an image
+  scout*      Docker Scout
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "C:\\Users\\Kanika Kushwaha\\.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "C:\\Users\\Kanika Kushwaha\\.docker\\ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "C:\\Users\\Kanika Kushwaha\\.docker\\cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "C:\\Users\\Kanika Kushwaha\\.docker\\key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+[+] Building 3.7s (2/2) FINISHED                                                                   docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.3s
+ => => transferring dockerfile: 151B                                                                               0.0s
+ => WARN: ConsistentInstructionCasing: Command 'From' should match the case of the command majority (uppercase) (  0.3s
+ => WARN: ConsistentInstructionCasing: Command 'expose' should match the case of the command majority (uppercase)  0.3s
+ => ERROR [internal] load metadata for docker.io/library/node:18-alphine                                           3.2s
+------
+ > [internal] load metadata for docker.io/library/node:18-alphine:
+------
+
+ 2 warnings found (use --debug to expand):
+ - ConsistentInstructionCasing: Command 'From' should match the case of the command majority (uppercase) (line 1)
+ - ConsistentInstructionCasing: Command 'expose' should match the case of the command majority (uppercase) (line 6)
+Dockerfile:1
+--------------------
+   1 | >>> From node:18-alphine
+   2 |     WORKDIR /app
+   3 |     COPY . .
+--------------------
+ERROR: failed to solve: node:18-alphine: failed to resolve source metadata for docker.io/library/node:18-alphine: docker.io/library/node:18-alphine: not found
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ vi dockerfile
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ vi dockerfile
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker build -t day02-todo .
+[+] Building 1.6s (2/2) FINISHED                                                                   docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.1s
+ => => transferring dockerfile: 151B                                                                               0.0s
+ => ERROR [internal] load metadata for docker.io/library/node:18-alphine                                           1.4s
+------
+ > [internal] load metadata for docker.io/library/node:18-alphine:
+------
+Dockerfile:1
+--------------------
+   1 | >>> FROM node:18-alphine
+   2 |     WORKDIR /app
+   3 |     COPY . .
+--------------------
+ERROR: failed to solve: node:18-alphine: failed to resolve source metadata for docker.io/library/node:18-alphine: docker.io/library/node:18-alphine: not found
+
+[+] Building 38.1s (7/8)                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 150B                                                                               0.0s
+[+] Building 38.6s (7/8)                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.0s
+[+] Building 39.0s (7/8)                                                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 150B                                                                               0.0s
+[+] Building 39.1s (7/8)                                                                           docker:desktop-linux
+ => => transferring dockerfile: 150B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                  4.4s
+[+] Building 42.5s (9/9) FINISHED                                                                  docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 150B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                  4.4s
+ => [internal] load .dockerignore                                                                                  0.2s
+ => => transferring context: 66B                                                                                   0.1s
+ => [1/4] FROM docker.io/library/node:18-alpine@sha256:02376a266c84acbf45bd19440e08e48b1c8b98037417334046029ab585  9.0s
+ => => resolve docker.io/library/node:18-alpine@sha256:02376a266c84acbf45bd19440e08e48b1c8b98037417334046029ab585  0.1s
+ => => sha256:ea8e360a721d870337fe899c70ea7def62f2a72cf1b6f7beb8a3ccaac8b6049c 1.72kB / 1.72kB                     0.0s
+ => => sha256:f48cc58268524517dc484f884b142fad1411e8b9ed35341342d877d5ae9396e2 6.36kB / 6.36kB                     0.0s
+ => => sha256:02376a266c84acbf45bd19440e08e48b1c8b98037417334046029ab585de03e2 7.67kB / 7.67kB                     0.0s
+ => => sha256:43c4264eed91be63b206e17d93e75256a6097070ce643c5e8f0379998b44f170 3.62MB / 3.62MB                     0.8s
+ => => sha256:cdccf44a82db2a9559b2c200f8cdbdb0df43925679f8ddc7c7e925d469b56d1d 1.38MB / 1.38MB                     1.0s
+ => => sha256:3696426c5aa28a9e9d46b6194f46c030c7dce77770db1f30e95e2317a1f97c0a 39.84MB / 39.84MB                   3.1s
+ => => extracting sha256:43c4264eed91be63b206e17d93e75256a6097070ce643c5e8f0379998b44f170                          0.4s
+ => => sha256:21f39b9ddd19acb73b7cbee0e5755029042719f744f2ce91a26f7e9425a79d6c 447B / 447B                         1.3s
+ => => extracting sha256:3696426c5aa28a9e9d46b6194f46c030c7dce77770db1f30e95e2317a1f97c0a                          4.6s
+ => => extracting sha256:cdccf44a82db2a9559b2c200f8cdbdb0df43925679f8ddc7c7e925d469b56d1d                          0.2s
+ => => extracting sha256:21f39b9ddd19acb73b7cbee0e5755029042719f744f2ce91a26f7e9425a79d6c                          0.0s
+ => [internal] load build context                                                                                  1.7s
+ => => transferring context: 6.42MB                                                                                1.5s
+ => [2/4] WORKDIR /app                                                                                             0.6s
+ => [3/4] COPY . .                                                                                                 0.3s
+ => [4/4] RUN yarn install --production                                                                           25.0s
+ => exporting to image                                                                                             2.7s
+ => => exporting layers                                                                                            2.6s
+ => => writing image sha256:d40e5d0fb8254599f60b3df14ccd385e0064ddb3f1b79fa1f7ff24191b9e7103                       0.0s
+ => => naming to docker.io/library/day02-todo                                                                      0.0s
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ cat dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD ["node","src/index.js"]
+EXPOSE 3000
+
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ cat dockerfile | wc -l
+7
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+day02-todo   latest    d40e5d0fb825   8 minutes ago   219MB
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker tag  day02-todo:latest kanikakushwaha/test-resp-day02:latest
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker images
+REPOSITORY                       TAG       IMAGE ID       CREATED          SIZE
+kanikakushwaha/test-resp-day02   latest    d40e5d0fb825   14 minutes ago   219MB
+day02-todo                       latest    d40e5d0fb825   14 minutes ago   219MB
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker push kanikakushwaha/test-resp-day02:latest
+The push refers to repository [docker.io/kanikakushwaha/test-resp-day02]
+82ea5ed8d2ae: Preparing
+41bcd9d851b1: Preparing
+aa81988857b3: Preparing
+e2be10e97665: Preparing
+06fd85419b65: Preparing
+f58c462fa079: Waiting
+63ca1fbb43ae: Waiting
+denied: requested access to the resource is denied
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker login
+Log in with your Docker ID or email address to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com/ to create one.
+You can log in with your password or a Personal Access Token (PAT). Using a limited-scope PAT grants better security and is required for organizations using SSO. Learn more at https://docs.docker.com/go/access-tokens/
+
+Username: kanikakushwaha
+Password:
+Error response from daemon: Get "https://registry-1.docker.io/v2/": unauthorized: incorrect username or password
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker login
+Log in with your Docker ID or email address to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com/ to create one.
+You can log in with your password or a Personal Access Token (PAT). Using a limited-scope PAT grants better security and is required for organizations using SSO. Learn more at https://docs.docker.com/go/access-tokens/
+
+Username: kanikakushwaha
+Password:
+Login Succeeded
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker push kanikakushwaha/test-resp-day02:latest
+The push refers to repository [docker.io/kanikakushwaha/test-resp-day02]
+82ea5ed8d2ae: Pushed
+41bcd9d851b1: Pushed
+aa81988857b3: Pushed
+e2be10e97665: Mounted from library/node
+06fd85419b65: Mounted from library/node
+f58c462fa079: Mounted from library/node
+63ca1fbb43ae: Mounted from library/node
+latest: digest: sha256:3fbccb3fbaef4a79b4dd833b6ee573dfdc3783fcba92b04add393d65370fd1cd size: 1787
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker images
+REPOSITORY                       TAG       IMAGE ID       CREATED          SIZE
+kanikakushwaha/test-resp-day02   latest    d40e5d0fb825   37 minutes ago   219MB
+day02-todo                       latest    d40e5d0fb825   37 minutes ago   219MB
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker run -dp 3000:3000 kanikakushwaha/test-resp-day02
+0d4da81d35899c1b8f47a32eeb874faa61a74dff98fb87d5c96492b4d3f178f0
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker ps
+CONTAINER ID   IMAGE                            COMMAND                  CREATED          STATUS          PORTS                    NAMES
+0d4da81d3589   kanikakushwaha/test-resp-day02   "docker-entrypoint.s…"   16 seconds ago   Up 15 seconds   0.0.0.0:3000->3000/tcp   flamboyant_sinoussi
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker exec -it flamboyant_sinoussi bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "bash": executable file not found in $PATH: unknown
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug flamboyant_sinoussi
+    Learn more at https://docs.docker.com/go/debug-cli/
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
+$ docker exec -it flamboyant_sinoussi sh
+/app # ls -lrt
+total 168
+-rwxr-xr-x    1 root     root        150541 Sep 14 10:38 yarn.lock       
+drwxr-xr-x    5 root     root          4096 Sep 14 10:38 src    
+drwxr-xr-x    4 root     root          4096 Sep 14 10:38 spec    
+-rwxr-xr-x    1 root     root           681 Sep 14 10:38 package.json    
+-rwxr-xr-x    1 root     root           273 Sep 14 10:38 README.md    
+drwxr-xr-x  167 root     root          4096 Sep 14 11:25 node_modules    
+/app # exit
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug flamboyant_sinoussi
+    Learn more at https://docs.docker.com/go/debug-cli/
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day2/getting-started-app (main)
