@@ -1,0 +1,13 @@
+-Creating pod using imperative way
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day6 (main)
+$ kubectl run nginx-pod --image=nginx:latest
+pod/nginx-pod created
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day6 (main)
+$ kubectl get pods
+NAME        READY   STATUS              RESTARTS   AGE
+nginx-pod   0/1     ContainerCreating   0          10s
+
+Kanika Kushwaha@DESKTOP-0GIN93H MINGW32 /d/Docker-Aks/Day6 (main)
+$

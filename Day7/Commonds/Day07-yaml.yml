@@ -1,0 +1,23 @@
+#sample yaml of list
+# - is used for list
+
+# employee:
+#   - name: Kanika
+#     age: 25
+#     address: 568
+#   - name: Vikas
+#     age: 26
+#     address:
+#     - old: ohb
+#     - new: hg
+
+#Sample yaml for pod and it is case sensitive
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ngnix-pod
+  labels: 
+    env: demo
+    type: frontend
+spec:
